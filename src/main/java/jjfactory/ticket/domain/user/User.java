@@ -1,15 +1,18 @@
 package jjfactory.ticket.domain.user;
 
 import jjfactory.ticket.domain.user.enums.Gender;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Builder
 @Getter
 public class User {
-    private Long id;
+    private Long user_id;
     private String username;
     private String name;
+    private String password;
     private String email;
     private String phone;
 
@@ -20,4 +23,5 @@ public class User {
 
     private LocalDateTime createDate;
     private LocalDateTime updatedDate;
+
 }

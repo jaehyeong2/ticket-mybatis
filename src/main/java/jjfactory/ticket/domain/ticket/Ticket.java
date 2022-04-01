@@ -1,9 +1,9 @@
-package jjfactory.ticket.domain.order;
+package jjfactory.ticket.domain.ticket;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Order {
+public class Ticket {
 }

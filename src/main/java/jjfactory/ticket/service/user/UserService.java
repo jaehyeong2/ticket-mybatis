@@ -8,15 +8,8 @@ import java.util.List;
 public interface UserService {
 
     User findById(Long id);
-
     List<User> findAll();
-
-    @Transactional
-    void insert();
-
-    @Transactional
+    void join(User user);
     void deleteById();
-
-    @Transactional
     void updateById();
 }
