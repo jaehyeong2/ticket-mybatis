@@ -3,11 +3,13 @@ package jjfactory.ticket.domain.user;
 import com.fasterxml.jackson.annotation.JsonValue;
 import jjfactory.ticket.domain.user.enums.EventAgreement;
 import jjfactory.ticket.domain.user.enums.Gender;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Builder
+@AllArgsConstructor
 @Getter
 public class User {
     private Long user_id;
@@ -24,8 +26,14 @@ public class User {
     private LocalDateTime createDate;
     private LocalDateTime updatedDate;
 
-    @JsonValue
+    public User() {
+    }
+
     public Gender getGender() {
         return gender;
+    }
+
+    public void encodePassword(String encoded) {
+        this.password = encoded;
     }
 }

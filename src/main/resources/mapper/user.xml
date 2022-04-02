@@ -10,8 +10,9 @@
         ,#{phone},#{gender}, #{eventAgreement})
     </insert>
 
-    <select id="login" resultType="jjfactory.ticket.domain.user.User">
-        SELECT id, username, email, profile, role, createDate FROM user WHERE username = #{username} AND password = #{password}
+    <select id="findByUsername" resultType="jjfactory.ticket.domain.user.User">
+        SELECT * FROM user
+        WHERE username = #{username}
     </select>
 
 </mapper>
