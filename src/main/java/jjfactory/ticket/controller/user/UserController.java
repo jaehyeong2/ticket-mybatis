@@ -6,10 +6,13 @@ import jjfactory.ticket.dto.SignUpDto;
 import jjfactory.ticket.mapper.UserMapper;
 import jjfactory.ticket.service.user.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class UserController {
@@ -35,14 +38,6 @@ public class UserController {
     @GetMapping("user/{id}")
     public String userDetail(@PathVariable Long id){
         return null;
-    }
-
-    @ResponseBody
-    @PostMapping("/signup")
-    public CommonRes<?> signUp(SignUpDto signUpDto){
-        User user = signUpDto.toEntity();
-        userService.join(user);
-        return new CommonRes<>(HttpStatus.OK.value(),user);
     }
 
 }

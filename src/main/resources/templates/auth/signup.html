@@ -35,7 +35,7 @@
 <div class="container">
     <div class="col-sm-5">
         <h3 style="margin-top: 10px">회원가입 페이지</h3>
-        <form th:action="@{/signup}" method="post">
+        <form th:action="@{/signup}"  method="post">
             <div class="form-group">
                 <label for="name">이름</label>
                 <input type="text" name="name" id="name" required placeholder="이름을 입력하세요"
@@ -64,18 +64,21 @@
             </div>
 
             <div class="form-group">
-                <label for="marketingAgreement">마케팅 수신여부</label>
-                <input type="text" class="form-control form-control-lg" required
-                       name="marketingAgreement"
-                       id="marketingAgreement">
+                <label for="gender">성별</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option th:value="MALE">남성</option>
+                    <option th:value="FEMALE">여성</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="eventAgreement">이벤트 알림 수신여부</label>
-                <input type="text" class="form-control form-control-lg" required
-                       name="eventAgreement"
-                       id="eventAgreement">
+                <select class="form-control" id="eventAgreement" name="eventAgreement">
+                    <option th:value="Y">네</option>
+                    <option th:value="N">아니오</option>
+                </select>
             </div>
+
         </form>
         <button id="btn-save" class="btn btn-primary">가입하기</button>
         <span style="margin-top: 10px"> 이미 계정이 있으신가요? <a class="linkControl" th:href="@{/signin}">로그인</a></span>

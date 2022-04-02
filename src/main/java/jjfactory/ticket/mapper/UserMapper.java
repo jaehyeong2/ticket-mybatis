@@ -1,6 +1,5 @@
 package jjfactory.ticket.mapper;
 
-import jjfactory.ticket.domain.team.Team;
 import jjfactory.ticket.domain.user.User;
 import org.apache.ibatis.annotations.*;
 
@@ -19,10 +18,8 @@ public interface UserMapper {
     })
     List<User> getUserList();
 
-    @Insert("INSERT INTO User(username,name,password,email,phone,gender,eventAgreement,marketingAgreement)" +
-            " VALUES ( #{user.username},#{user.name},#{user.password},#{user.email},#{user.phone}, " +
-            "#{user.gender},#{user.eventAgreement},#{user.marketingAgreement}) ")
-    @Options(useGeneratedKeys = true, keyProperty = "user_id")
-    Long insertUser(@Param("user") User user);
+//    @Options(useGeneratedKeys = true, keyProperty = "user_id")
+    void join(User user);
 
+    User findByUsername(String username);
 }

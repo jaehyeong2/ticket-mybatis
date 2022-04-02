@@ -1,6 +1,8 @@
 package jjfactory.ticket.dto;
 
 import jjfactory.ticket.domain.user.User;
+import jjfactory.ticket.domain.user.enums.EventAgreement;
+import jjfactory.ticket.domain.user.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +16,9 @@ public class SignUpDto {
     private String username;  //아이디
     private String password;
     private String email;
-    private String eventAgreement;
+    private EventAgreement eventAgreement;
     private String marketingAgreement;
+    private Gender gender;
 
     public User toEntity(){
         return User.builder()
@@ -24,7 +27,7 @@ public class SignUpDto {
                 .password(password)
                 .email(email)
                 .eventAgreement(eventAgreement)
-                .marketingAgreement(marketingAgreement)
+                .gender(gender)
                 .build();
     }
 }

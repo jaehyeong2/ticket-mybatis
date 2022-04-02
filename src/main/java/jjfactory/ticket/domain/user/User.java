@@ -1,9 +1,10 @@
 package jjfactory.ticket.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import jjfactory.ticket.domain.user.enums.EventAgreement;
 import jjfactory.ticket.domain.user.enums.Gender;
 import lombok.Builder;
 import lombok.Getter;
-
 import java.time.LocalDateTime;
 
 @Builder
@@ -18,10 +19,13 @@ public class User {
 
     private Gender gender;
 
-    private String eventAgreement; //이벤트 동의 여부
-    private String marketingAgreement;// 마케팅 동의 여부
+    private EventAgreement eventAgreement; //이벤트 동의 여부
 
     private LocalDateTime createDate;
     private LocalDateTime updatedDate;
 
+    @JsonValue
+    public Gender getGender() {
+        return gender;
+    }
 }

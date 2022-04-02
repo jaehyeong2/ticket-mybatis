@@ -3,11 +3,13 @@ package jjfactory.ticket.service.user;
 import jjfactory.ticket.domain.user.User;
 import jjfactory.ticket.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Service
@@ -28,7 +30,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void join(User user) {
-        userMapper.insertUser(user);
+        userMapper.join(user);
+        log.info("UserService : username = {} email = {}",user.getUsername(),user.getEmail());
+        log.info("UserService : name= {} password= {}",user.getName(),user.getPassword());
     }
 
     @Transactional

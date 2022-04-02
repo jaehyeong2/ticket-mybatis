@@ -23,7 +23,7 @@ let index = {
             username: $("#username").val(),
             password: $("#password").val(),
             email: $("#email").val(),
-            marketingAgreement: $("#marketingAgreement").val(),
+            gender: $("#gender").val(),
             eventAgreement: $("#eventAgreement").val()
         };
 
