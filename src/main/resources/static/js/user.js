@@ -35,8 +35,9 @@ let index = {
             dataType: "json"
         }).done(function () {
             console.log(data);
-            alert("회원가입이 완료되었습니다.");
-            location.href="/";
+            // alert("회원가입이 완료되었습니다.");
+            swal('회원가입 성공',$("#username").val() +'님 회원가입을 축하합니다!\n\n한달간 무료로 PERSONL 멤버십의 서비스를\n 이용하실 수 있습니다.');
+            // location.href="/";
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

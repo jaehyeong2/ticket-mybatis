@@ -4,6 +4,7 @@ import jjfactory.ticket.domain.user.User;
 import jjfactory.ticket.dto.CommonRes;
 import jjfactory.ticket.dto.SignUpDto;
 import jjfactory.ticket.mapper.UserMapper;
+import jjfactory.ticket.service.product.ProductServiceImpl;
 import jjfactory.ticket.service.user.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,9 +20,11 @@ public class UserController {
 
     private final UserServiceImpl userService;
     private final UserMapper userMapper;
+    private final ProductServiceImpl productService;
 
     @GetMapping("/")
-    public String home(){
+    public String home(Model model){
+        model.addAttribute("products",productService.getProductList());
         return "home";
     }
 
